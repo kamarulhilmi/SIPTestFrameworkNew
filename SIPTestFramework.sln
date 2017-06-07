@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPTestFramework", "SIPTestFramework\SIPTestFramework.csproj", "{31D2B6ED-719B-44FD-8D04-D9EB5CDD77CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPTests", "SIPTests\SIPTests.csproj", "{28340692-4C3A-4B69-9963-FA06D7C653CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31D2B6ED-719B-44FD-8D04-D9EB5CDD77CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D2B6ED-719B-44FD-8D04-D9EB5CDD77CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D2B6ED-719B-44FD-8D04-D9EB5CDD77CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D2B6ED-719B-44FD-8D04-D9EB5CDD77CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28340692-4C3A-4B69-9963-FA06D7C653CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28340692-4C3A-4B69-9963-FA06D7C653CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28340692-4C3A-4B69-9963-FA06D7C653CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28340692-4C3A-4B69-9963-FA06D7C653CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
