@@ -13,7 +13,7 @@ namespace SIPTests
         {
             Pages.Login.Goto();
             Pages.Login.Login("invalidusername", "admin");
-            Assert.IsTrue(Pages.Loginpage.IsAt(), "Where is he error message?");
+            Assert.IsTrue(Pages.Loginpage.IsAt(), "Where is the error message?");
             
         }
     }
