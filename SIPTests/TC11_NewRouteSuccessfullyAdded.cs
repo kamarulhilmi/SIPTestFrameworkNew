@@ -9,7 +9,7 @@ namespace SIPTests
     public class TC11_NewRouteSuccessfullyAdded  : TestBase
     {
         [TestMethod]
-        public void RunTest_TC10()
+        public void RunTest_TC11()
         {
             Pages.Login.Goto();
             Pages.Login.Login("admin", "admin");

@@ -9,7 +9,7 @@ namespace SIPTests
     public class TC13_NewRouteSuccessfullyDelete : TestBase
     {
         [TestMethod]
-        public void RunTest_TC10()
+        public void RunTest_TC13()
         {
             Pages.Login.Goto();
             Pages.Login.Login("admin", "admin");
@@ -18,8 +18,8 @@ namespace SIPTests
             Pages.MapDashboard.UserGroup();
             Assert.IsTrue(Pages.UserGroup.IsAt(), "The user can't access User Group page.");
 
-            Pages.UserGroup.DeleteUserGroup("AutomationTest01");
-            Pages.UserGroup.ConfirmDelete();
+            Pages.AddRoute.DeleteRoute("AutoTestRoute01");
+            Pages.AddRoute.ConfirmDelete();
 
         }
     }

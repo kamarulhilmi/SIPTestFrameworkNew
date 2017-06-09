@@ -9,17 +9,17 @@ namespace SIPTests
     public class TC12_NewRouteSuccessfullyEdited : TestBase
     {
         [TestMethod]
-        public void RunTest_TC10()
+        public void RunTest_TC12()
         {
             Pages.Login.Goto();
             Pages.Login.Login("admin", "admin");
             Assert.IsTrue(Pages.MapDashboard.IsAt(), "The user can't access map dahsboard page.");
 
-            Pages.MapDashboard.UserGroup();
-            Assert.IsTrue(Pages.UserGroup.IsAt(), "The user can't access User Group page.");
-
-            Pages.UserGroup.DeleteUserGroup("AutomationTest01");
-            Pages.UserGroup.ConfirmDelete();
+            Pages.MapDashboard.Route();
+            Assert.IsTrue(Pages.Route.IsAt(), "The user can't access Route page.");
+            
+            Pages.AddRoute.EditRoute("AutoTestRoute01");
+            Pages.AddRoute.ConfirmEdit();
 
         }
     }
