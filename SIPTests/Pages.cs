@@ -82,6 +82,20 @@ namespace SIPTests
             }
         }
 
+        public static RoutePage Route
+        {
+            get
+            {
+                return GetPage<RoutePage>();
+            }
+        }
 
+        public static AddRoutePage AddRoute
+        {
+            get
+            {
+                return GetPage<AddRoutePage>();
+            }
+        }
     }
 }

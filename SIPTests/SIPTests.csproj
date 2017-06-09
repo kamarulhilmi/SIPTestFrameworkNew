@@ -61,15 +61,20 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AddNewUserPage.cs" />
+    <Compile Include="AddRoutePage.cs" />
     <Compile Include="AddUserGroupPage.cs" />
     <Compile Include="Browser.cs" />
     <Compile Include="EditUserPage.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="MapDashboardPage.cs" />
     <Compile Include="Pages.cs" />
+    <Compile Include="RoutePage.cs" />
     <Compile Include="TC07_NewUserPasswordSuccessfullyReset.cs" />
     <Compile Include="TC06_NewUserSuccessfullyDeleted.cs" />
     <Compile Include="TC05_NewUserSuccessfullyEdited.cs" />
+    <Compile Include="TC13_NewRouteSuccessfullyDelete.cs" />
+    <Compile Include="TC12_NewRouteSuccessfullyEdited.cs" />
+    <Compile Include="TC11_NewRouteSuccessfullyAdded.cs" />
     <Compile Include="TC10_UserGroupSuccessfullyDeleted.cs" />
     <Compile Include="TC09_UserGroupSuccessfullyEdited.cs" />
     <Compile Include="TC08_UserGroupSuccessfullyAdded.cs" />

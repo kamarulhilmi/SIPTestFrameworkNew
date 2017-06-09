@@ -18,7 +18,12 @@ namespace SIPTests
         {
             By element = By.XPath("//a[contains(text(),'Home')]");
             return WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
-
+        }
+        
+        public bool IsRouteDisplay()
+        {
+            By element = By.XPath("//a[contains(text(),'Route')]");
+            return WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
         }
 
         public bool IsUserMngtDisplay()
@@ -52,7 +57,7 @@ namespace SIPTests
                 return false;
             }
         }
-
+        //--------------------------------------------------------------------
         public void UserManagement()
         {
             var menu = Driver.FindElement(By.Id("menu1"));
@@ -83,7 +88,6 @@ namespace SIPTests
             }
             while (true);
         }
-        
 
         public void UserGroup()
         {
@@ -116,7 +120,35 @@ namespace SIPTests
             } while (true);
         }
 
-       
-    }
+        public void Route()
+        {
+            var menu = Driver.FindElement(By.Id("menu1"));
+            var subMenu = Driver.FindElement(By.XPath("//a[contains(text(),'Map')]"));
+            var route = Driver.FindElement(By.XPath("//a[contains(text(),'Route')]"));
+            Actions action = new Actions(webDriver);
 
+            menu.Click();
+            action.MoveToElement(subMenu).Build().Perform();
+            action.MoveToElement(route).Build().Perform();
+
+            do
+            {
+                if (IsElementPresent(By.XPath("//a[contains(text(),'Route')]")))
+                {
+                    try
+                    {
+                        Assert.IsTrue(Pages.MapDashboard.IsRouteDisplay(), "The route web element is not display");
+                        route.Click();
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        action.MoveToElement(subMenu).Build().Perform();
+                        action.MoveToElement(route).Build().Perform();
+                    }
+                }
+            }
+            while (true);
+        }
+    }
 }
