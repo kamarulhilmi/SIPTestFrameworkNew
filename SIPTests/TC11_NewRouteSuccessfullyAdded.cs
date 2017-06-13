@@ -19,7 +19,9 @@ namespace SIPTests
             Assert.IsTrue(Pages.Route.IsAt(), "The user can't access Route page.");
 
             Pages.Route.AddRoute();
-            Pages.AddRoute.AddNewRoute("AutoTestRoute01");
+            Pages.AddRoute.AddNewRoute(
+                "AutoTestRoute02", //route name
+                "FF17E0");          //route color
             Pages.AddRoute.Confirm();
             
         }

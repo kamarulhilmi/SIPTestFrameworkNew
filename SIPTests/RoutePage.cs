@@ -13,7 +13,7 @@ namespace SIPTests
 
         public bool IsAt()
         {
-            By element = By.Id("//label[contains(text(),'Route')]");
+            By element = By.XPath("//label[contains(text(),'Route')]");
             return Browser.WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
         }
 

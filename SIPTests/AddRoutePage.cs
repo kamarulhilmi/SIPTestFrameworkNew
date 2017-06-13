@@ -10,10 +10,15 @@ namespace SIPTests
 {
     public class AddRoutePage : Browser
     {
-        internal void AddNewRoute(string routeName)
+        internal void AddNewRoute(string routeName, string routeColor)
         {
             var routename = Driver.FindElement(By.Id("routename"));
             routename.SendKeys(routeName);
+
+            var routecolor = Driver.FindElement(By.Id("routeColor"));
+            routecolor.Clear();
+            routecolor.SendKeys(routeColor);
+
             
         }
 
@@ -58,13 +63,12 @@ namespace SIPTests
         
         internal void ConfirmEdit()
         {
-            var editRouteButton = Driver.FindElement(By.XPath("v"));
+            var editRouteButton = Driver.FindElement(By.XPath(v));
             editRouteButton.Click();
         }
 
         internal void DeleteRoute(string routeName)
         {
-
             //need to working with html table
             By locator = By.Id("tableRouteData");
             var table = Driver.FindElement(locator);
@@ -97,7 +101,7 @@ namespace SIPTests
 
         internal void ConfirmDelete()
         {
-            var deleteRouteButton = Driver.FindElement(By.XPath("v"));
+            var deleteRouteButton = Driver.FindElement(By.XPath(v));
             deleteRouteButton.Click();
         }
     }

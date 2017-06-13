@@ -15,8 +15,8 @@ namespace SIPTests
             Pages.Login.Login("admin", "admin");
             Assert.IsTrue(Pages.MapDashboard.IsAt(), "The user can't access map dahsboard page.");
 
-            Pages.MapDashboard.UserGroup();
-            Assert.IsTrue(Pages.UserGroup.IsAt(), "The user can't access User Group page.");
+            Pages.MapDashboard.Route();
+            Assert.IsTrue(Pages.Route.IsAt(), "The user can't access User Group page.");
 
             Pages.AddRoute.DeleteRoute("AutoTestRoute01");
             Pages.AddRoute.ConfirmDelete();
