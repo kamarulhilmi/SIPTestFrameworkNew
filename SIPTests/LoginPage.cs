@@ -11,7 +11,15 @@ namespace SIPTests
 {
     public class LoginPage : Browser
     {
-        //method
+
+        private int PAGE_LOAD_TIMEOUT = 10;
+
+        public bool IsAt()
+        {
+            By element = By.Id("login_error");
+            return Browser.WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
+        }
+
         public void Goto()
         {
             Browser.Goto("/Account/Login");
@@ -39,11 +47,5 @@ namespace SIPTests
             
         }
 
-        private int PAGE_LOAD_TIMEOUT = 10;
-        public bool IsAt()
-        {
-            By element = By.Id("login_error");
-            return Browser.WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
-        }
     }
 }
