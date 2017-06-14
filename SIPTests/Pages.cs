@@ -97,5 +97,21 @@ namespace SIPTests
                 return GetPage<AddRoutePage>();
             }
         }
+
+        public static POIManagementPage POIManagement
+        {
+            get
+            {
+                return GetPage<POIManagementPage>();
+            }
+        }
+
+        public static AddPOIPage AddPOI
+        {
+            get
+            {
+                return GetPage<AddPOIPage>();
+            }
+        }
     }
 }

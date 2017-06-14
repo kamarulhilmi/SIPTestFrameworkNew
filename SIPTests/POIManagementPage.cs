@@ -1,45 +1,41 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA;
-using OpenQA.Selenium;
 
 namespace SIPTests
 {
-    public class AddRoutePage : Browser
+    public class POIManagementPage : Browser
     {
-        internal void AddNewRoute(string routeName, string routeColor)
-        {
-            var routename = Driver.FindElement(By.Id("routename"));
-            routename.SendKeys(routeName);
-
-            var routecolor = Driver.FindElement(By.Id("routeColor"));
-            routecolor.Clear();
-            routecolor.SendKeys(routeColor);
-            
-        }
-
-        internal void Confirm()
-        {
-            var confirmButton = Driver.FindElement(By.Id("btnSubmitRoute"));
-            confirmButton.Click();
-        }
-
+        private static int PAGE_LOAD_TIMEOUT = 10;
         public static string v = ".";
-        internal void EditRoute(string routeName)
+
+        public bool IsAt()
+        {
+            By element = By.XPath("//label[contains(text(),'POI Management')]");
+            return WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
+        }
+
+        internal void AddPOI()
+        {
+            var addpoi = Driver.FindElement(By.Id("btnAddPOI"));
+            addpoi.Click();
+        }
+
+        internal void EditPOI(string poiname)
         {
             //need to working with html table
-            By locator = By.Id("tableRouteData");
+            By locator = By.Id("tableData");
             var table = Driver.FindElement(locator);
 
             //collection of all row in the table
-            IList<IWebElement> collectionOfRows = table.FindElements(By.XPath("//*[@id='tableRouteData']/tbody/tr"));
+            IList<IWebElement> collectionOfRows = table.FindElements(By.XPath("//*[@id='tableData']/tbody/tr"));
 
             var columnCounter = 1;
-            var columnIndex = 4;
-            string DESIRED_VALUE = routeName;
+            var columnIndex = 11;
+            string DESIRED_VALUE = poiname;
 
             //logic
             for (int tr = 0; tr < collectionOfRows.Count; tr++)
@@ -52,32 +48,31 @@ namespace SIPTests
                 {
                     if (cell.Text == DESIRED_VALUE)
                     {
-                        string desiredValueLocator = string.Format(".//*[@id='tableRouteData']/tbody/tr[{0}]/td[{1}]/i[1]", tr + 1, columnIndex);
+                        string desiredValueLocator = string.Format(".//*[@id='tableData']/tbody/tr[{0}]/td[{1}]/i[1]", tr + 1, columnIndex);
                         v = desiredValueLocator;
                     }
                     columnCounter++;
                 }
             }
         }
-        
         internal void ConfirmEdit()
         {
-            var editRouteButton = Driver.FindElement(By.XPath(v));
-            editRouteButton.Click();
+            var editButton = Driver.FindElement(By.XPath(v));
+            editButton.Click();
         }
 
-        internal void DeleteRoute(string routeName)
+        internal void DeletePOI(string poiname)
         {
             //need to working with html table
-            By locator = By.Id("tableRouteData");
+            By locator = By.Id("tableData");
             var table = Driver.FindElement(locator);
 
             //collection of all row in the table
-            IList<IWebElement> collectionOfRows = table.FindElements(By.XPath("//*[@id='tableRouteData']/tbody/tr"));
+            IList<IWebElement> collectionOfRows = table.FindElements(By.XPath("//*[@id='tableData']/tbody/tr"));
 
             var columnCounter = 1;
-            var columnIndex = 4;
-            string DESIRED_VALUE = routeName;
+            var columnIndex = 11;
+            string DESIRED_VALUE = poiname;
 
             //logic
             for (int tr = 0; tr < collectionOfRows.Count; tr++)
@@ -90,7 +85,7 @@ namespace SIPTests
                 {
                     if (cell.Text == DESIRED_VALUE)
                     {
-                        string desiredValueLocator = string.Format(".//*[@id='tableRouteData']/tbody/tr[{0}]/td[{1}]/i[2]", tr + 1, columnIndex);
+                        string desiredValueLocator = string.Format(".//*[@id='tableData']/tbody/tr[{0}]/td[{1}]/i[2]", tr + 1, columnIndex);
                         v = desiredValueLocator;
                     }
                     columnCounter++;
@@ -100,8 +95,8 @@ namespace SIPTests
 
         internal void ConfirmDelete()
         {
-            var deleteRouteButton = Driver.FindElement(By.XPath(v));
-            deleteRouteButton.Click();
+            var deleteButton = Driver.FindElement(By.XPath(v));
+            deleteButton.Click();
         }
     }
 }

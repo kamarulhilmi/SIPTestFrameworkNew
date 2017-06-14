@@ -13,7 +13,9 @@ namespace SIPTests
         {
             Pages.Login.Goto();
             Pages.Login.Login("admin", "test");
-            Assert.IsTrue(Pages.Loginpage.IsAt(), ".");
+            Assert.IsTrue(Pages.Loginpage.IsAt(), "Error message?");
+
+            Pages.Login.TakeScreenShot();
             
         }
     }

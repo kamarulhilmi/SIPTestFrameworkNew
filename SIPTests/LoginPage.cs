@@ -1,13 +1,15 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SIPTests
 {
-    public class LoginPage
+    public class LoginPage : Browser
     {
         //method
         public void Goto()
@@ -26,6 +28,15 @@ namespace SIPTests
 
             Browser.Driver.FindElement(By.Id("btn_login")).Click();
 
+        }
+
+        internal void TakeScreenShot()
+        {
+            ITakesScreenshot screenshotDriver = Driver as ITakesScreenshot;
+            Screenshot screenshot = screenshotDriver.GetScreenshot();
+            string fp = "D:\\" + "snapshot" + "_" + DateTime.Now.ToString("dd_MMMM_hh_mm_ss_tt") + ".png";
+            screenshot.SaveAsFile(fp, ScreenshotImageFormat.Png);
+            
         }
 
         private int PAGE_LOAD_TIMEOUT = 10;

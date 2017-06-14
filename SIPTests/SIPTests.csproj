@@ -61,6 +61,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AddNewUserPage.cs" />
+    <Compile Include="AddPOIPage.cs" />
     <Compile Include="AddRoutePage.cs" />
     <Compile Include="AddUserGroupPage.cs" />
     <Compile Include="Browser.cs" />
@@ -68,10 +69,14 @@
     <Compile Include="LoginPage.cs" />
     <Compile Include="MapDashboardPage.cs" />
     <Compile Include="Pages.cs" />
+    <Compile Include="POIManagementPage.cs" />
     <Compile Include="RoutePage.cs" />
     <Compile Include="TC07_NewUserPasswordSuccessfullyReset.cs" />
     <Compile Include="TC06_NewUserSuccessfullyDeleted.cs" />
     <Compile Include="TC05_NewUserSuccessfullyEdited.cs" />
+    <Compile Include="TC16_NewPOISuccessfullyDelete.cs" />
+    <Compile Include="TC15_NewPOISuccessfullyEdited.cs" />
+    <Compile Include="TC14_NewPOISuccessfullyAdded.cs" />
     <Compile Include="TC13_NewRouteSuccessfullyDelete.cs" />
     <Compile Include="TC12_NewRouteSuccessfullyEdited.cs" />
     <Compile Include="TC11_NewRouteSuccessfullyAdded.cs" />

@@ -19,7 +19,13 @@ namespace SIPTests
             By element = By.XPath("//a[contains(text(),'Home')]");
             return WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
         }
-        
+
+        public bool IsPOIvisible()
+        {
+            By element = By.XPath("//a[contains(text(),'POI Management')]");
+            return WaitUntilElementDisplayed(element, PAGE_LOAD_TIMEOUT);
+        }
+
         public bool IsRouteDisplay()
         {
             By element = By.XPath("//a[contains(text(),'Route')]");
@@ -145,6 +151,37 @@ namespace SIPTests
                     {
                         action.MoveToElement(subMenu).Build().Perform();
                         action.MoveToElement(route).Build().Perform();
+                    }
+                }
+            }
+            while (true);
+        }
+        
+        public void POIManagement()
+        {
+            var menu = Driver.FindElement(By.Id("menu1"));
+            var subMenu = Driver.FindElement(By.XPath("//a[contains(text(),'Map')]"));
+            var POI = Driver.FindElement(By.XPath("//a[contains(text(),'POI Management')]"));
+            Actions action = new Actions(webDriver);
+
+            menu.Click();
+            action.MoveToElement(subMenu).Build().Perform();
+            action.MoveToElement(POI).Build().Perform();
+
+            do
+            {
+                if (IsElementPresent(By.XPath("//a[contains(text(),'POI Management')]")))
+                {
+                    try
+                    {
+                        Assert.IsTrue(Pages.MapDashboard.IsPOIvisible(), "The route web element is not display");
+                        POI.Click();
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        action.MoveToElement(subMenu).Build().Perform();
+                        action.MoveToElement(POI).Build().Perform();
                     }
                 }
             }
